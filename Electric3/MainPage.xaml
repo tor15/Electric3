@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Electric3.MainPage"
+             BackgroundColor="Black"
+             Title="Electric!">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,10"
+            VerticalOptions="Center"
+            Background="Black">
+
+            <Image
+                Source="solar_a.png"
+                SemanticProperties.Description="Solar Energy Production"
+                HeightRequest="70"
+                HorizontalOptions="Center">
+                <Image.Clip>
+                    <EllipseGeometry
+                                     RadiusX="35"
+                                     RadiusY="35"
+                                     Center="35,35"/>
+
+                </Image.Clip>
+
+            </Image>
+
+            <Label
+                x:Name="ProductionLabelText"
+                
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="Solar Energy Production"
+                FontSize="16"
+                TextColor="White"
+                HorizontalOptions="Center" />
+
+            <Label
+                x:Name="ProductionLabel"
+                Text="Solar Production"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="Solar Energy Production"
+                FontSize="14"
+                TextColor="White"
+                HorizontalOptions="Center" />
+
+
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+            <Label
+                x:Name="ConsumptionLabel"
+                Text="Energy Consumption"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="Home Energy Consumption"
+                FontSize="14"
+                TextColor="White"
+                HorizontalOptions="Center" />
+
+            <Label
+                x:Name="ConsumptionLabelText"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="Home Energy Consumption"
+                FontSize="16"
+                TextColor="White"
+                HorizontalOptions="Center" />
+
+            <Image
+                Source="energy_use_a.png"
+                SemanticProperties.Description="Total Energy Use"
+                HeightRequest="80"
+                HorizontalOptions="Center">
+                <Image.Clip>
+                    <EllipseGeometry
+                                     RadiusX="36"
+                                     RadiusY="36"
+                                     Center="39,39"/>
+                </Image.Clip>
+            </Image>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
