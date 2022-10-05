@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text;
 using JsonElement = System.Text.Json.JsonElement;
-//using Xamarin.KotlinX.Coroutines;
+//https://www.vector4free.com/free-vectors/electric
 
 namespace Electric3;
 
@@ -19,7 +19,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-
+        //ErrorLabel.Text = "press power symbol to start";
     }
 
     private async void OnCounterClicked(object sender, EventArgs e)
@@ -28,10 +28,12 @@ public partial class MainPage : ContentPage
         if (count == 2)
         {
             count = 0;
-            CounterBtn.Text = "Click to start";
+            //CounterBtn.Text = "Click to start";
             return;
         }
 
+        //CounterBtn.Text = "started";
+        ErrorLabel.Text= "started";
         Task<int> longRunningTask = loopDisplay();
         int result = await longRunningTask;
 
@@ -53,7 +55,8 @@ public partial class MainPage : ContentPage
              */
             //CounterBtn.Text = $"Click to stop {i}";
             if (!error)
-                CounterBtn.Text = "Click to stop";
+                //CounterBtn.Text = "Click to stop";
+                ErrorLabel.Text = "started";
             else
                 count = 0;
 
@@ -65,7 +68,8 @@ public partial class MainPage : ContentPage
 
     private void displayNewData()
     {
-        
+
+        error = false;
         string result;
         try
         {
@@ -73,7 +77,9 @@ public partial class MainPage : ContentPage
         }
         catch (Exception ex)
         {
-            CounterBtn.Text = "json file not opened";
+            //CounterBtn.Text = "json file not opened";
+            ErrorLabel.Text = "json file not opened";
+            error = true;
             return;
         }
 
@@ -96,19 +102,48 @@ public partial class MainPage : ContentPage
         }
         catch (Exception ex)
         {
-            CounterBtn.Text = "json not parsed";
+            //CounterBtn.Text = "json not parsed";
+            ErrorLabel.Text = "json not parsed";
+            error = true;
         }
     
 
     // is this needed?  is it needed for the label text updates?
-    SemanticScreenReader.Announce(CounterBtn.Text);
+    //SemanticScreenReader.Announce(CounterBtn.Text);
     }
 
     // does it need to be Task instead of void?
     private async void keepDisplaying()
     {
-        CounterBtn.IsEnabled = false;
+        //CounterBtn.IsEnabled = false;
+
         await Task.Delay(5000);
-        CounterBtn.IsEnabled = true;
+        //CounterBtn.IsEnabled = true;
+    }
+
+    private void OnImageButtonClicked(object sender, EventArgs e)
+    {
+        if (count == 0) ErrorLabel.Text = "started";
+        SemanticScreenReader.Announce(ErrorLabel.Text);
+        fromImageButtonClicked();
+        
+    }
+
+    private async void fromImageButtonClicked()
+    {
+        // same code as OnButtonClicked
+        count++;
+        
+        if (count == 2)
+        {
+            count = 0;
+            //CounterBtn.Text = "Click to start";
+            ErrorLabel.Text = "click electric symbol to start";
+            return;
+        }
+
+        //CounterBtn.Text = "started";
+        Task<int> longRunningTask = loopDisplay();
+        int result = await longRunningTask;
     }
 }

@@ -45,14 +45,15 @@
                 TextColor="White"
                 HorizontalOptions="Center" />
 
+            <ImageButton Source="power_logo.png"
+                    Clicked="OnImageButtonClicked"
+                         HeightRequest="70"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
 
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+
+           
 
             <Label
                 x:Name="ConsumptionLabel"
@@ -84,7 +85,13 @@
                 </Image.Clip>
             </Image>
 
-
+            <Label
+                x:Name="ErrorLabel"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="Home Energy Consumption"
+                FontSize="12"
+                TextColor="White"
+                HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>
