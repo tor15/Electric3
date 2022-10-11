@@ -4,6 +4,6 @@
 # Displays solar electricity production every 5 seconds
 # Displays electricity usage every 5 seconds
 
-# code written in C# using .Net6 Maui on Windows with Visual Studio 2022
+# code written in C# and Xaml using .Net6 Maui on Windows with Visual Studio 2022
 
 # apk published and distributed and in use
